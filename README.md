@@ -30,7 +30,9 @@ npm install
 echo "AUTH_USERNAME=admin
 AUTH_PASSWORD=password
 NEXT_PUBLIC_AI_AGENT_API_URL=http://localhost:8000
-NEXT_PUBLIC_API_URL=http://localhost:8001" > .env.local
+NEXT_PUBLIC_API_URL=http://localhost:8001
+NEXT_PUBLIC_FORM_API_URL=http://localhost:8002
+
 
 # Run the development server
 npm run dev
@@ -90,3 +92,4 @@ The application requires the following environment variables to be set in your `
 | `AUTH_PASSWORD`                | Password for basic authentication   |
 | `NEXT_PUBLIC_AI_AGENT_API_URL` | URL of the AI agent API service     |
 | `NEXT_PUBLIC_API_URL`          | URL of the main backend API service |
+| `NEXT_PUBLIC_FORM_API_URL`     | URL of the requests backend API     |
