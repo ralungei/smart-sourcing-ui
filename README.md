@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Volvo AI Smart Sourcing Frontend
 
-## Getting Started
+A **Next.js** application that provides an intuitive interface for **AI-powered truck parts procurement**. The system automates **supplier selection**, **communication**, and **comparison** to support optimal sourcing decisions.
 
-First, run the development server:
+---
+
+## Features
+
+- **AI-Powered Chat**  
+  Request parts through natural language conversation.
+
+- **Request Management**  
+  View, filter, and track purchase requests.
+
+- **Supplier Comparison**  
+  Automatically compare offers based on price and delivery time.
+
+- **Notification System**  
+  Get updates when requests are assigned to suppliers.
+
+---
+
+## 🚀 Running in Dev
 
 ```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+echo "AUTH_USERNAME=admin
+AUTH_PASSWORD=password
+NEXT_PUBLIC_AI_AGENT_API_URL=http://localhost:8000
+NEXT_PUBLIC_API_URL=http://localhost:8001" > .env.local
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Running in Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To build and run the application in production mode:
 
-## Learn More
+```bash
+# Build the application
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# Start the production server
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the app in the background using PM2
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# If the process is already registered, restart it:
+pm2 restart volvo-ui
 
-## Deploy on Vercel
+# If it's not started yet, start it with:
+pm2 start npm --name "volvo-ui" -- start
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Make sure you have PM2 installed globally:
+
+```bash
+npm install -g pm2
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+---
+
+## 🛠️ Technologies
+
+- **Next.js 14 (App Router)**
+- **Material UI**
+- **Framer Motion** – for smooth animations
+- **React Charts** – for dynamic data visualization
+
+---
+
+## 🔐 Environment Variables
+
+The application requires the following environment variables to be set in your `.env.local` file:
+
+| Variable                       | Description                         |
+| ------------------------------ | ----------------------------------- |
+| `AUTH_USERNAME`                | Username for basic authentication   |
+| `AUTH_PASSWORD`                | Password for basic authentication   |
+| `NEXT_PUBLIC_AI_AGENT_API_URL` | URL of the AI agent API service     |
+| `NEXT_PUBLIC_API_URL`          | URL of the main backend API service |
