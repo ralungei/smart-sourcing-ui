@@ -26,8 +26,8 @@ A **Next.js** application that provides an intuitive interface for **AI-powered 
 # Install dependencies
 npm install
 
-# Set up environment variables
-echo "AUTH_USERNAME=admin
+# Create your .env file with
+AUTH_USERNAME=admin
 AUTH_PASSWORD=password
 NEXT_PUBLIC_AI_AGENT_API_URL=http://localhost:8000
 NEXT_PUBLIC_API_URL=http://localhost:8001
