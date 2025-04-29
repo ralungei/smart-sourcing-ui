@@ -1,95 +1,92 @@
 # Volvo AI Smart Sourcing Frontend
 
-A **Next.js** application that provides an intuitive interface for **AI-powered truck parts procurement**. The system automates **supplier selection**, **communication**, and **comparison** to support optimal sourcing decisions.
-
----
+Next.js application providing an interface for AI-powered truck parts procurement with automated supplier selection and comparison.
 
 ## Features
 
-- **AI-Powered Chat**  
-  Request parts through natural language conversation.
+- **AI-Powered Chat** - Request parts through natural language
+- **Form-Based Requests** - Submit structured procurement requests
+- **Request Management** - View, filter, and track requests
+- **Supplier Comparison** - Compare offers based on price and delivery time
+- **Notification System** - Updates when requests are assigned to suppliers
 
-- **Request Management**  
-  View, filter, and track purchase requests.
+## Tech Stack
 
-- **Supplier Comparison**  
-  Automatically compare offers based on price and delivery time.
+- Next.js 15 (App Router)
+- Material UI 7
+- Framer Motion
+- React Charts
 
-- **Notification System**  
-  Get updates when requests are assigned to suppliers.
+## Setup
 
----
+### Prerequisites
 
-## 🚀 Running in Dev
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone repository
+git clone https://github.com/ralungei/volvo-ai-requests-frontend.git
+cd volvo-ai-requests-frontend
+
 # Install dependencies
 npm install
 
-# Create your .env file with
-AUTH_USERNAME=admin
-AUTH_PASSWORD=password
-NEXT_PUBLIC_AI_AGENT_API_URL=http://localhost:8000
+# Create .env.local file with:
 NEXT_PUBLIC_API_URL=http://localhost:8001
+NEXT_PUBLIC_AI_AGENT_API_URL=http://localhost:8000
 NEXT_PUBLIC_FORM_API_URL=http://localhost:8002
+AUTH_USERNAME=your_username
+AUTH_PASSWORD=your_password
+```
 
+### Development
 
-# Run the development server
+```bash
 npm run dev
 ```
 
----
-
-## Running in Production
-
-To build and run the application in production mode:
+### Production
 
 ```bash
-# Build the application
 npm run build
-
-# Start the production server
 npm start
-```
 
-To run the app in the background using PM2
-
-```bash
-# If the process is already registered, restart it:
-pm2 restart volvo-ui
-
-# If it's not started yet, start it with:
+# Or with PM2
 pm2 start npm --name "volvo-ui" -- start
-
 ```
 
-Make sure you have PM2 installed globally:
+## Project Structure
 
-```bash
-npm install -g pm2
-```
+- `/app` - Main application code
+  - `/api` - Authentication routes
+  - `/components` - UI components
+  - `/context` - State management
+  - `/theme` - UI theming
+- `/lib` - Utilities and API clients
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+## Backend Integration
 
----
+The frontend connects to three services:
 
-## 🛠️ Technologies
+- Main API - Requests and notifications
+- AI Agent API - Chat functionality
+- Form API - Structured requests submission
 
-- **Next.js 14 (App Router)**
-- **Material UI**
-- **Framer Motion** – for smooth animations
-- **React Charts** – for dynamic data visualization
+# Docker
 
----
+## Build the Docker image
 
-## 🔐 Environment Variables
+docker build -t volvo-ai-frontend .
 
-The application requires the following environment variables to be set in your `.env.local` file:
+## Run the container
 
-| Variable                       | Description                         |
-| ------------------------------ | ----------------------------------- |
-| `AUTH_USERNAME`                | Username for basic authentication   |
-| `AUTH_PASSWORD`                | Password for basic authentication   |
-| `NEXT_PUBLIC_AI_AGENT_API_URL` | URL of the AI agent API service     |
-| `NEXT_PUBLIC_API_URL`          | URL of the main backend API service |
-| `NEXT_PUBLIC_FORM_API_URL`     | URL of the requests backend API     |
+docker run -p 3000:3000 \
+ -e NEXT_PUBLIC_API_URL=http://localhost:8001 \
+ -e NEXT_PUBLIC_AI_AGENT_API_URL=http://localhost:8000 \
+ -e NEXT_PUBLIC_FORM_API_URL=http://localhost:8002 \
+ -e AUTH_USERNAME=your_username \
+ -e AUTH_PASSWORD=your_password \
+ volvo-ai-frontend
