@@ -1,4 +1,4 @@
-# Volvo AI Smart Sourcing Frontend
+# Smart Sourcing Frontend
 
 Next.js application providing an interface for AI-powered truck parts procurement with automated supplier selection and comparison.
 
