@@ -28,8 +28,8 @@ Next.js application providing an interface for AI-powered truck parts procuremen
 
 ```bash
 # Clone repository
-git clone https://github.com/ralungei/volvo-ai-requests-frontend.git
-cd volvo-ai-requests-frontend
+git clone https://github.com/ralungei/smart-sourcing-ui.git
+cd smart-sourcing-ui
 
 # Install dependencies
 npm install
@@ -55,7 +55,7 @@ npm run build
 npm start
 
 # Or with PM2
-pm2 start npm --name "volvo-ui" -- start
+pm2 start npm --name "smart-sourcing-ui" -- start
 ```
 
 ## Project Structure
@@ -79,7 +79,7 @@ The frontend connects to three services:
 
 ## Build the Docker image
 
-docker build -t volvo-ai-frontend .
+docker build -t smart-sourcing-ui .
 
 ## Run the container
 
@@ -89,4 +89,4 @@ docker run -p 3000:3000 \
  -e NEXT_PUBLIC_FORM_API_URL=http://localhost:8002 \
  -e AUTH_USERNAME=your_username \
  -e AUTH_PASSWORD=your_password \
- volvo-ai-frontend
+ smart-sourcing-ui
