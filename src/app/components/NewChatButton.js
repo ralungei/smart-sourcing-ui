@@ -32,7 +32,7 @@ const NewChatButton = ({ onClick }) => {
   return (
     <StyledNewChatButton onClick={onClick}>
       <Box sx={{ mr: 1 }}>+</Box>
-      New request
+      New booking
     </StyledNewChatButton>
   );
 };

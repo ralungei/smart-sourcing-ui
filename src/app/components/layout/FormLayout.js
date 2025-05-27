@@ -174,7 +174,7 @@ export default function FormLayout({ children }) {
                   }}
                 >
                   AI Smart Sourcing: Parts
-                  <br /> Request Generator
+                  <br /> Booking Generator
                 </Box>
               </Box>
               <UserAvatarMenu />

@@ -220,7 +220,7 @@ const WelcomeScreen = () => {
               </Box>
 
               <Box>
-                {renderInputItem(locationRef, MapPin, "Delivery Location")}
+                {renderInputItem(locationRef, MapPin, "Unloading Point")}
               </Box>
             </Box>
 

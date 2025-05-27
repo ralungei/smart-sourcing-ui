@@ -65,7 +65,7 @@ const RequestCreator = () => {
       setTimeout(() => refreshRequests(), 5000);
     } catch (err) {
       console.error("Error submitting request:", err);
-      setError("Failed to submit request. Please try again.");
+      setError("Failed to submit booking. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -112,8 +112,8 @@ const RequestCreator = () => {
               </Box>
               <SuccessMessage>
                 <Typography variant="body1" sx={{ mb: 1.5 }}>
-                  Your request is being processed. You&apos;ll be notified when
-                  offers are available.
+                  Your booking is being processed. You&apos;ll be notified when
+                  supplier offers are available.
                 </Typography>
                 <Typography variant="body1">
                   Want to{" "}
@@ -129,7 +129,7 @@ const RequestCreator = () => {
                       },
                     }}
                   >
-                    create a new request
+                    create a new booking
                   </Link>
                   ?
                 </Typography>

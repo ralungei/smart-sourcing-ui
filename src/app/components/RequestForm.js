@@ -221,7 +221,7 @@ const RequestForm = ({ onSubmit }) => {
         }}
       >
         <Typography variant="h4" sx={visionProStyles.heading}>
-          New Request
+          New booking
         </Typography>
 
         <Box
@@ -356,7 +356,7 @@ const RequestForm = ({ onSubmit }) => {
               <TextField
                 {...params}
                 required
-                label="Delivery Location"
+                label="Unloading Point"
                 name="deliveryLocation"
                 placeholder="e.g. Madrid"
                 InputProps={{
@@ -389,7 +389,7 @@ const RequestForm = ({ onSubmit }) => {
           />
           <TextField
             required
-            label="Delivery Date"
+            label="Max Pickup Date"
             name="maxDeliveryDate"
             type="date"
             value={formValues.maxDeliveryDate}

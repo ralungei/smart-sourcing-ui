@@ -112,7 +112,7 @@ const RequestsList = ({ onNewRequest }) => {
             component="h1"
             sx={{ textShadow: "0px 1px 4px rgba(0, 0, 0, 0.6)" }}
           >
-            Purchase Requests
+            Express Transport Bookings
           </Typography>
         </Box>
       </Box>
@@ -243,7 +243,7 @@ const RequestsList = ({ onNewRequest }) => {
         ) : error ? (
           <Box p={4}>
             <Typography color="error" variant="h6">
-              Error loading requests
+              Error loading bookings
             </Typography>
             <Typography color="error">{error}</Typography>
           </Box>
@@ -327,7 +327,7 @@ const RequestsList = ({ onNewRequest }) => {
           </>
         ) : (
           <Box textAlign="center" p={4}>
-            <Typography variant="h6">No requests found</Typography>
+            <Typography variant="h6">No bookings found</Typography>
             {activeFilter !== "ALL" && (
               <Typography
                 variant="body2"

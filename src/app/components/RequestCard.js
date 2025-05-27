@@ -237,7 +237,7 @@ const RequestCard = ({ request }) => {
       icon: <MapPin size={16} style={{ color: "rgba(255, 255, 255, 0.7)" }} />,
     },
     {
-      label: "Max Delivery",
+      label: "Max Pickup",
       value: formatDate(request.input_state.max_delivery_date),
     },
   ];
@@ -321,62 +321,66 @@ const RequestCard = ({ request }) => {
               sx={{ mr: 1.5 }}
             />
 
-            <IconButton
-              size="small"
-              aria-label="more"
-              aria-controls="request-menu"
-              aria-haspopup="true"
-              onClick={(event) => setMenuAnchorEl(event.currentTarget)}
-              sx={{
-                mr: 1.5,
-                height: 28,
-                borderRadius: "8px",
-                backgroundColor: "rgba(255, 255, 255, 0.05)",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.15)",
-                },
-              }}
-            >
-              <MoreVertical size={14} />
-            </IconButton>
-            <Menu
-              id="request-menu"
-              anchorEl={menuAnchorEl}
-              keepMounted
-              open={Boolean(menuAnchorEl)}
-              onClose={() => setMenuAnchorEl(null)}
-              PaperProps={{
-                sx: {
-                  backgroundColor: "rgba(0, 0, 0, 0.8)",
-                  backdropFilter: "blur(10px)",
-                  borderRadius: "12px",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  minWidth: "160px",
-                },
-              }}
-            >
-              <MenuItem
-                onClick={() => {
-                  handleResubmit();
-                  setMenuAnchorEl(null);
-                }}
-                disabled={resubmitting}
-                sx={{
-                  color: "rgba(255, 255, 255, 0.9)",
-                  fontSize: "0.875rem",
-                  "&:hover": {
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  },
-                }}
-              >
-                {resubmitting ? (
-                  <CircularProgress size={14} sx={{ mr: 1.5 }} />
-                ) : (
-                  <RefreshCcw size={14} style={{ marginRight: "12px" }} />
-                )}
-                Resubmit
-              </MenuItem>
-            </Menu>
+            {request.status === "FAILED" && (
+              <>
+                <IconButton
+                  size="small"
+                  aria-label="more"
+                  aria-controls="request-menu"
+                  aria-haspopup="true"
+                  onClick={(event) => setMenuAnchorEl(event.currentTarget)}
+                  sx={{
+                    mr: 1.5,
+                    height: 28,
+                    borderRadius: "8px",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    "&:hover": {
+                      backgroundColor: "rgba(255, 255, 255, 0.15)",
+                    },
+                  }}
+                >
+                  <MoreVertical size={14} />
+                </IconButton>
+                <Menu
+                  id="request-menu"
+                  anchorEl={menuAnchorEl}
+                  keepMounted
+                  open={Boolean(menuAnchorEl)}
+                  onClose={() => setMenuAnchorEl(null)}
+                  PaperProps={{
+                    sx: {
+                      backgroundColor: "rgba(0, 0, 0, 0.8)",
+                      backdropFilter: "blur(10px)",
+                      borderRadius: "12px",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      minWidth: "160px",
+                    },
+                  }}
+                >
+                  <MenuItem
+                    onClick={() => {
+                      handleResubmit();
+                      setMenuAnchorEl(null);
+                    }}
+                    disabled={resubmitting}
+                    sx={{
+                      color: "rgba(255, 255, 255, 0.9)",
+                      fontSize: "0.875rem",
+                      "&:hover": {
+                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      },
+                    }}
+                  >
+                    {resubmitting ? (
+                      <CircularProgress size={14} sx={{ mr: 1.5 }} />
+                    ) : (
+                      <RefreshCcw size={14} style={{ marginRight: "12px" }} />
+                    )}
+                    Resubmit
+                  </MenuItem>
+                </Menu>
+              </>
+            )}
 
             <ExpandButton
               onClick={handleExpandClick}
@@ -493,7 +497,7 @@ const RequestCard = ({ request }) => {
                 >
                   <Box>
                     <Typography variant="caption" sx={textStyles.caption}>
-                      DELIVERY DATE
+                      MAX PICKUP
                     </Typography>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                       <Calendar
@@ -579,7 +583,7 @@ const RequestCard = ({ request }) => {
               letterSpacing: "0.3px",
             }}
           >
-            All Available Offers
+            All Available Supplier Offers
           </Typography>
 
           <OffersGrid>

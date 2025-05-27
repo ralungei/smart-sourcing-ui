@@ -1,20 +1,20 @@
 "use client";
-import { useState, useEffect } from "react";
+import { notificationsApi } from "@/lib/notificationsApi";
 import {
-  Box,
   Badge,
-  Typography,
-  Popover,
+  Box,
+  CircularProgress,
+  IconButton,
   List,
   ListItem,
   ListItemText,
-  IconButton,
-  CircularProgress,
+  Popover,
+  Typography,
 } from "@mui/material";
-import { Bell, Info } from "lucide-react";
 import { styled } from "@mui/material/styles";
-import { notificationsApi } from "@/lib/notificationsApi";
 import { formatDistanceToNow } from "date-fns";
+import { Bell, Info } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const NotificationContainer = styled(Box)(() => ({
   position: "relative",
@@ -123,7 +123,7 @@ const NotificationsButton = ({ onNotificationRead }) => {
   const handleNotificationClick = async (notificationId, requestId) => {
     handleClose();
 
-    console.log(`Navigating to request details for #${requestId}`);
+    console.log(`Navigating to booking details for #${requestId}`);
   };
 
   const markAllAsRead = async () => {
@@ -168,11 +168,11 @@ const NotificationsButton = ({ onNotificationRead }) => {
 
     return provId ? (
       <>
-        Request <b>#{requestId}</b> was assigned to <b>{provId}</b>
+        Booking <b>#{requestId}</b> was assigned to <b>{provId}</b>
       </>
     ) : (
       <>
-        New update for Request <b>#{requestId}</b>
+        New update for Booking <b>#{requestId}</b>
       </>
     );
   };

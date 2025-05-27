@@ -234,7 +234,7 @@ const RequestSummaryCard = ({ requestData }) => {
                 animation: `${slideIn} 0.5s ease-out forwards`,
               }}
             >
-              Request {smartId}
+              Booking {smartId}
             </Typography>
             <Tooltip title="Copy identifier">
               <IconButton
